@@ -1,0 +1,12 @@
+import React from 'react'
+
+function App() {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <h1 className="text-4xl font-bold text-blue-600">AutoRevive</h1>
+      <p className="text-gray-500 mt-4">¡Tu web está lista para desarrollarse!</p>
+    </div>
+  )
+}
+
+export default App
