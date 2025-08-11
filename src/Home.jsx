@@ -55,7 +55,7 @@ const Home = () => (
 		{/* Hero Section */}
 				<section
 					id="inicio"
-					className="min-h-screen flex items-center pt-20"
+					className="min-h-screen flex items-center pt-32 pb-16 md:pt-20 md:pb-0"
 					style={{
 						background: `linear-gradient(rgba(30, 64, 175, 0.8), rgba(30, 64, 175, 0.8)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 600'%3E%3Crect fill='%23334155' width='1200' height='600'/%3E%3Ccircle fill='%234f46e5' opacity='0.1' cx='200' cy='100' r='80'/%3E%3Ccircle fill='%23f59e0b' opacity='0.1' cx='800' cy='300' r='120'/%3E%3Ccircle fill='%2306b6d4' opacity='0.1' cx='1000' cy='500' r='100'/%3E%3C/svg%3E")`,
 						backgroundSize: 'cover',
