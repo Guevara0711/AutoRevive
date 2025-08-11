@@ -383,42 +383,198 @@ const Home = () => (
 					{/* Formulario */}
 					<div className="bg-white p-8 rounded-xl shadow-lg">
 						<h3 className="text-2xl font-bold text-gray-900 mb-6">Solicitar Cotización</h3>
-						<form className="space-y-6">
+						<form className="space-y-6" onSubmit={e => {e.preventDefault(); enviarWhatsApp();}}>
 							<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 								<div>
 									<label className="block text-sm font-medium text-gray-700 mb-2">Nombre</label>
-									<input type="text" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Tu nombre" />
+									<input id="nombre" type="text" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Tu nombre" />
 								</div>
 								<div>
 									<label className="block text-sm font-medium text-gray-700 mb-2">Teléfono</label>
-									<input type="tel" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="+507 0000-0000" />
+									<input id="telefono" type="tel" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="+507 0000-0000" />
 								</div>
 							</div>
 							<div>
 								<label className="block text-sm font-medium text-gray-700 mb-2">Marca y modelo del vehículo</label>
-								<input type="text" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Ej: Toyota Corolla 2018" />
+								<input id="vehiculo" type="text" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Ej: Toyota Corolla 2018" />
 							</div>
 							<div>
-								<label className="block text-sm font-medium text-gray-700 mb-2">Mensaje</label>
-								<textarea className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" rows="4" placeholder="Cuéntanos tu caso..."></textarea>
+								<label className="block text-sm font-medium text-gray-700 mb-2">Tipo de servicio</label>
+								<select id="servicio" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+									<option>Selecciona un servicio</option>
+									<option>Chapistería completa</option>
+									<option>Pintura completa</option>
+									<option>Pintura parcial</option>
+									<option>Reparación de rayones</option>
+									<option>Enderezado</option>
+									<option>Otros servicios</option>
+								</select>
 							</div>
-							<button type="submit" className="bg-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-800 transition w-full">Enviar Solicitud</button>
+							<div>
+								<label className="block text-sm font-medium text-gray-700 mb-2">Describe el problema</label>
+								<textarea id="descripcion" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent h-32" placeholder="Describe el daño o trabajo que necesitas..."></textarea>
+							</div>
+							<button type="submit" className="w-full bg-green-500 text-white py-4 rounded-lg text-lg font-semibold hover:bg-green-600 transition flex items-center justify-center">
+								<FaWhatsapp className="mr-2" />
+								Enviar por WhatsApp
+							</button>
 						</form>
+					</div>
+				</div>
+
+				{/* Mapa */}
+				<div className="mt-16">
+					<h3 className="text-2xl font-bold text-gray-900 text-center mb-8">Nuestra Ubicación</h3>
+					<div className="bg-white rounded-xl shadow-lg overflow-hidden">
+						<iframe
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.5582374073426!2d-79.53468022447515!3d9.009309891014088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8faca8f1dbe80363%3A0x37338b4b34069cdb!2sV%C3%ADa%20Espa%C3%B1a%2C%20Panam%C3%A1!5e0!3m2!1ses!2spa!4v1691234567890!5m2!1ses!2spa"
+							width="100%"
+							height="400"
+							style={{ border: 0 }}
+							allowFullScreen=""
+							loading="lazy"
+							referrerPolicy="no-referrer-when-downgrade"
+							className="w-full"
+						></iframe>
+					</div>
+					<div className="bg-white p-6 border-t">
+						<div className="flex flex-col md:flex-row justify-between items-center">
+							<div>
+								<h4 className="font-semibold text-gray-900">AutoPro - Chapistería y Pintura</h4>
+								<p className="text-gray-600">Vía España, Ciudad de Panamá</p>
+								<p className="text-sm text-gray-500">Frente al Centro Comercial El Dorado</p>
+							</div>
+							<div className="mt-4 md:mt-0 flex space-x-4">
+								<a
+									href="https://maps.google.com/directions"
+									target="_blank"
+									className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition flex items-center"
+								>
+									<i className="fas fa-directions mr-2"></i>
+									Cómo llegar
+								</a>
+								<a
+									href="https://wa.me/50760000000?text=Hola,%20¿podrían%20darme%20indicaciones%20para%20llegar?"
+									className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition flex items-center"
+								>
+									<FaWhatsapp className="mr-2" />
+									Pedir indicaciones
+								</a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 
 		{/* WhatsApp flotante */}
-			<a
-				href="https://wa.me/50760000000?text=Hola,%20necesito%20una%20cotización%20para%20mi%20vehículo"
-				className="fixed bottom-5 right-5 z-50 animate-pulse bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg flex items-center justify-center"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-			<FaWhatsapp className="text-3xl" />
+		<a
+			href="https://wa.me/50760000000?text=Hola,%20necesito%20información%20sobre%20sus%20servicios"
+			className="floating-whatsapp bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition fixed bottom-5 right-5 z-50 flex items-center justify-center animate-pulse"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<FaWhatsapp className="text-2xl" />
 		</a>
+
+		{/* Footer */}
+		<footer className="bg-gray-900 text-white py-16">
+			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+					{/* Logo y descripción */}
+					<div className="md:col-span-2">
+						<div className="flex items-center mb-4">
+							<div className="bg-primary text-white p-3 rounded-lg mr-3">
+								<FaCar className="text-2xl" />
+							</div>
+							<div>
+								<h3 className="text-2xl font-bold">AutoPro</h3>
+								<p className="text-gray-400">Chapistería y Pintura</p>
+							</div>
+						</div>
+						<p className="text-gray-400 mb-6 max-w-md">
+							Más de 15 años devolviendo la vida a los vehículos con servicios profesionales de chapistería y pintura automotriz.
+						</p>
+						<div className="flex space-x-4">
+							<a href="#" className="bg-gray-800 p-3 rounded-lg hover:bg-gray-700 transition">
+								<i className="fab fa-facebook"></i>
+							</a>
+							<a href="#" className="bg-gray-800 p-3 rounded-lg hover:bg-gray-700 transition">
+								<i className="fab fa-instagram"></i>
+							</a>
+							<a href="https://wa.me/50760000000" className="bg-green-500 p-3 rounded-lg hover:bg-green-600 transition">
+								<FaWhatsapp />
+							</a>
+						</div>
+					</div>
+					{/* Servicios */}
+					<div>
+						<h4 className="text-lg font-semibold mb-4">Servicios</h4>
+						<ul className="space-y-2 text-gray-400">
+							<li><a href="#servicios" className="hover:text-white transition">Chapistería completa</a></li>
+							<li><a href="#servicios" className="hover:text-white transition">Pintura automotriz</a></li>
+							<li><a href="#servicios" className="hover:text-white transition">Pulido y encerado</a></li>
+							<li><a href="#servicios" className="hover:text-white transition">Restauración</a></li>
+							<li><a href="#servicios" className="hover:text-white transition">Protección cerámica</a></li>
+						</ul>
+					</div>
+					{/* Contacto */}
+					<div>
+						<h4 className="text-lg font-semibold mb-4">Contacto</h4>
+						<ul className="space-y-2 text-gray-400">
+							<li className="flex items-center">
+								<FaMapMarkerAlt className="mr-2" />
+								Vía España, Panamá
+							</li>
+							<li className="flex items-center">
+								<FaPhone className="mr-2" />
+								+507 6000-0000
+							</li>
+							<li className="flex items-center">
+								<FaWhatsapp className="mr-2" />
+								+507 6000-0000
+							</li>
+							<li className="flex items-center">
+								<FaClock className="mr-2" />
+								Lun-Vie 7AM-6PM
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div className="border-t border-gray-800 pt-8 mt-8">
+					<div className="flex flex-col md:flex-row justify-between items-center">
+						<p className="text-gray-400 text-sm">
+							© 2024 AutoPro Chapistería y Pintura. Todos los derechos reservados.
+						</p>
+						<div className="flex space-x-6 mt-4 md:mt-0">
+							<a href="#" className="text-gray-400 hover:text-white text-sm transition">Política de Privacidad</a>
+							<a href="#" className="text-gray-400 hover:text-white text-sm transition">Términos de Servicio</a>
+							<a href="#" className="text-gray-400 hover:text-white text-sm transition">Garantía</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
 	</div>
 );
+
+// Función para enviar formulario por WhatsApp
+function enviarWhatsApp() {
+	const nombre = document.getElementById('nombre')?.value || '';
+	const telefono = document.getElementById('telefono')?.value || '';
+	const vehiculo = document.getElementById('vehiculo')?.value || '';
+	const servicio = document.getElementById('servicio')?.value || '';
+	const descripcion = document.getElementById('descripcion')?.value || '';
+
+	let mensaje = `Hola, solicito cotización:\n\n`;
+	if (nombre) mensaje += `Nombre: ${nombre}\n`;
+	if (telefono) mensaje += `Teléfono: ${telefono}\n`;
+	if (vehiculo) mensaje += `Vehículo: ${vehiculo}\n`;
+	if (servicio && servicio !== 'Selecciona un servicio') mensaje += `Servicio: ${servicio}\n`;
+	if (descripcion) mensaje += `Descripción: ${descripcion}\n`;
+
+	const url = `https://wa.me/50760000000?text=${encodeURIComponent(mensaje)}`;
+	window.open(url, '_blank');
+}
 
 export default Home;
